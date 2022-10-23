@@ -5,4 +5,12 @@
     <string name="mkolay">MKOLAY</string>
     <string name="migroskop">MİGROSKOP</string>
     <string name="homepage">ANASAYFA</string>
+    <string name="mkolay_shop">Mkolay Mağaza ile ürünlerinizi kolayca \nokutun, <b>JetKasa</b> ile ödeyin.</string>
+    <string name="mkolay_canteen">Mkolay Kantin ile ürünlerinizi kolayca okutun, \n<b>telefonunuzdan ödeyin</b></string>
+    <string name="welcome">Hoş geldiniz.</string>
+    <string name="qr_message">  Mkolay Kantin’e giriş yapabilmek için \n <b>QR kodu</b> turnikeye okutman gerekiyor.</string>
+    <string name="qr_code">QR Code</string>
+    <string name="shopping_history">Alışveriş \nGeçmişim</string>
+    <string name="add_new_credit_card">Yeni Kart \nEkle</string>
+
 </resources>

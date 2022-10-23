@@ -2,53 +2,179 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/gallery"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/consFirst"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="0dp"
-        android:layout_height="246dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/bg_white_rounded"
-        android:elevation="2dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgBackBtn"
+        android:layout_width="19dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/previous"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <View
+        android:id="@+id/viewBackBtnArea"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+    </View>
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:fontFamily="@font/cera_pro_bold"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/consMkolayMarket"
+        android:layout_width="0dp"
+        android:layout_height="246dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_green_rounded"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
         <ImageView
-            android:id="@+id/imgMkolay"
+            android:id="@+id/imgMkolayMarket"
             android:layout_width="0dp"
             android:layout_height="135dp"
             android:scaleType="fitXY"
-            android:src="@drawable/mkolay_pic"
+            android:src="@drawable/mkolay_shop_pic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/imgBackground"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/green_bg"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgMkolay">
-
-        </View>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"/>
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imgGreenArrow"
             android:layout_width="44dp"
             android:layout_height="31dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="14dp"
             android:layout_marginEnd="12dp"
             android:src="@drawable/green_arrow"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgMkolay" />
+            app:layout_constraintTop_toBottomOf="@+id/imgMkolayMarket"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imgMkolayLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/mkolay_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgMkolayMarket"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/txtMkolayMarket"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/gilroy_regular"
+            android:text="@string/mkolay_shop"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/imgGreenArrow"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imgMkolayLogo"
+            app:layout_constraintTop_toBottomOf="@+id/imgMkolayLogo"
+            app:lineHeight="20sp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/consMkolayCanteen"
+        android:layout_width="0dp"
+        android:layout_height="246dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_red_rounded"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consMkolayMarket">
+
+        <ImageView
+            android:id="@+id/imgMkolayShop"
+            android:layout_width="0dp"
+            android:layout_height="123dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/mkolay_canteen_pic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imgRedArrow"
+            android:layout_width="44dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/red_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgMkolayShop"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imgMkolayCanteenLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="19dp"
+            android:src="@drawable/mkolay_canteen_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgMkolayShop"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/txtMkolayCanteen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/gilroy_semi_bold"
+            android:text="@string/mkolay_canteen"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/imgRedArrow"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imgMkolayCanteenLogo"
+            app:layout_constraintTop_toBottomOf="@+id/imgMkolayCanteenLogo"
+            app:lineHeight="20sp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

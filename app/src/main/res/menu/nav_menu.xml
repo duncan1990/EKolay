@@ -2,25 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/firstFragment"
-        android:icon="@drawable/asm_ic_contact"
+        android:id="@+id/homepage"
+        android:icon="@drawable/homepage"
         android:title="@string/homepage" />
     <item
-        android:id="@+id/secondFragment"
-        android:icon="@drawable/asm_ic_contact"
+        android:id="@+id/migroskop"
+        android:icon="@drawable/tag"
         android:title="@string/migroskop" />
     <item
-        android:id="@+id/thirdFragment"
-        android:icon="@drawable/asm_ic_contact"
+        android:id="@+id/mkolay"
+        android:icon="@drawable/migros_kolay_logo"
         android:title="@string/mkolay" />
     <item
-        android:id="@+id/fourthFragment"
-        android:icon="@drawable/asm_ic_contact"
+        android:id="@+id/migrostv"
+        android:icon="@drawable/television"
         android:title="@string/migrostv" />
     <item
-        android:id="@+id/fifthFragment"
-        android:icon="@drawable/asm_ic_contact"
+        android:id="@+id/profile"
+        android:icon="@drawable/user"
         android:title="@string/profile" />
-
 
 </menu>

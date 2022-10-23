@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/hibiscus"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgBackBtn"
+        android:layout_width="19dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/previous"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <View
+        android:id="@+id/viewBackBtnArea"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </View>
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:fontFamily="@font/cera_pro_bold"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:fontFamily="@font/gotham_bold"
+        android:text="@string/welcome"
+        android:textColor="@color/mine_shaft"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/txtQrMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/gotham_regular"
+        android:text="@string/qr_message"
+        android:textAlignment="center"
+        android:textColor="@color/mine_shaft"
+        app:layout_constraintEnd_toEndOf="@+id/txtWelcome"
+        app:layout_constraintStart_toStartOf="@+id/txtWelcome"
+        app:layout_constraintTop_toBottomOf="@+id/txtWelcome"
+        app:lineHeight="22sp" />
+
+    <View
+        android:id="@+id/imgRedFocusSquare"
+        android:layout_width="245dp"
+        android:layout_height="245dp"
+        android:background="@drawable/red_focus_square"
+        app:layout_constraintBottom_toBottomOf="@+id/imgQrcode"
+        app:layout_constraintEnd_toEndOf="@+id/imgQrcode"
+        app:layout_constraintStart_toStartOf="@+id/imgQrcode"
+        app:layout_constraintTop_toTopOf="@+id/imgQrcode">
+
+    </View>
+
+    <ImageView
+        android:id="@+id/imgQrcode"
+        android:layout_width="182dp"
+        android:layout_height="182dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="84dp"
+        android:contentDescription="@string/qr_code"
+        app:layout_constraintEnd_toEndOf="@+id/txtQrMessage"
+        app:layout_constraintStart_toStartOf="@+id/txtQrMessage"
+        app:layout_constraintTop_toBottomOf="@+id/txtQrMessage" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="82dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgQrcode">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consShoppingHistory"
+            android:layout_width="0dp"
+            android:layout_height="107dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_white_rounded">
+
+            <ImageView
+                android:id="@+id/imgBill"
+                android:layout_width="18dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_bill"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/txtShoppingHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:fontFamily="@font/gotham_medium"
+                android:text="@string/shopping_history"
+                android:textAlignment="center"
+                android:textColor="@color/mine_shaft_dark"
+                app:layout_constraintEnd_toEndOf="@+id/imgBill"
+                app:layout_constraintStart_toStartOf="@+id/imgBill"
+                app:layout_constraintTop_toBottomOf="@+id/imgBill"
+                app:lineHeight="20sp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consAddNewCreditCard"
+            android:layout_width="0dp"
+            android:layout_height="107dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_gray_rounded">
+
+            <ImageView
+                android:id="@+id/imgCreditCard"
+                android:layout_width="18dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_credit_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/txtAddCreditCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:fontFamily="@font/gotham_medium"
+                android:text="@string/add_new_credit_card"
+                android:textAlignment="center"
+                android:textColor="@color/mine_shaft_dark"
+                app:layout_constraintEnd_toEndOf="@+id/imgCreditCard"
+                app:layout_constraintStart_toStartOf="@+id/imgCreditCard"
+                app:layout_constraintTop_toBottomOf="@+id/imgCreditCard"
+                app:lineHeight="20sp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

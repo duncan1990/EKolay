@@ -1,4 +1,4 @@
-package com.ahmety.mkolay.ui
+package com.ahmety.mkolay
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
