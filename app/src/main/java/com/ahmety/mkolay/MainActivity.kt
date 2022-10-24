@@ -2,10 +2,8 @@ package com.ahmety.mkolay
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.ahmety.mkolay.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

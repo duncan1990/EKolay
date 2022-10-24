@@ -39,13 +39,13 @@
     </View>
 
     <TextView
-        android:id="@+id/textViewTitle"
+        android:id="@+id/txtToolbarTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textAllCaps="true"
         android:textSize="16sp"
-        android:fontFamily="@font/cera_pro_bold"
+        android:fontFamily="@font/gotham_bold"
         android:text="@string/app_name"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,10 +97,10 @@
         android:layout_height="182dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="84dp"
-        android:contentDescription="@string/qr_code"
         app:layout_constraintEnd_toEndOf="@+id/txtQrMessage"
         app:layout_constraintStart_toStartOf="@+id/txtQrMessage"
-        app:layout_constraintTop_toBottomOf="@+id/txtQrMessage" />
+        app:layout_constraintTop_toBottomOf="@+id/txtQrMessage"
+        tools:ignore="ContentDescription"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -184,7 +184,6 @@
                 app:lineHeight="20sp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </LinearLayout>
 

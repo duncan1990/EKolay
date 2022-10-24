@@ -1,16 +1,18 @@
-package com.ahmety.mkolay
+package com.ahmety.mkolay.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.ahmety.mkolay.R
 import com.ahmety.mkolay.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
-    private val homeViewModel: HomeViewModel by viewModels()
+    private val mainViewModel: HomeViewModel by viewModels()
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
 
@@ -33,7 +35,7 @@ class MainFragment : Fragment() {
         val window = requireActivity().window
         //window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         //window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        window.statusBarColor = this.resources.getColor(R.color.zest)
+        window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.zest)
     }
 
     private fun setupClickListener() {
@@ -51,12 +53,12 @@ class MainFragment : Fragment() {
                         navigate(R.id.action_mainFragment_to_canteenFragment)
                     }
                 }
+            }
 
-                consMkolayCanteen.setOnClickListener {
-                    findNavController().apply {
-                        currentDestination?.getAction(R.id.action_mainFragment_to_canteenFragment)?.run {
-                            navigate(R.id.action_mainFragment_to_canteenFragment)
-                        }
+            consMkolayCanteen.setOnClickListener {
+                findNavController().apply {
+                    currentDestination?.getAction(R.id.action_mainFragment_to_canteenFragment)?.run {
+                        navigate(R.id.action_mainFragment_to_canteenFragment)
                     }
                 }
             }

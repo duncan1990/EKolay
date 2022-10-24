@@ -108,7 +108,8 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:1.0.0"
 
     // QR Code
-    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
+    //implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
 }
 kapt {
     correctErrorTypes true

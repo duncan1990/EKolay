@@ -12,5 +12,13 @@
     <string name="qr_code">QR Code</string>
     <string name="shopping_history">Alışveriş \nGeçmişim</string>
     <string name="add_new_credit_card">Yeni Kart \nEkle</string>
+    <string name="lorem_impsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</string>
+    <string name="wish_well_shopping">İyi Alışverişler Dileriz</string>
+    <string name="received_order">Alışverişin bize ulaştı.</string>
+    <string name="can_see_in_shopping_history">Faturan oluştuğunda <b>Alışveriş geçmişim</b> kısmından görüntüleyebilirsin</string>
+    <string name="return_homepage">Anasayfaya dön</string>
+    <string name="paid_fee">Ödenen Tutar</string>
+    <string name="negro">Eti Negro</string>
+    <string name="price">%1$.2f &#x20BA;</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.ahmety.mkolay.ui.canteen
+package com.ahmety.mkolay.ui.shopping
 
 import android.os.Bundle
 import android.os.Handler
@@ -10,20 +10,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.ahmety.mkolay.R
-import com.ahmety.mkolay.databinding.FragmentCanteenBinding
-import com.google.zxing.BarcodeFormat
-import com.journeyapps.barcodescanner.BarcodeEncoder
+import com.ahmety.mkolay.databinding.FragmentShoppingBinding
 
-
-class CanteenFragment : Fragment() {
-    private val canteenViewModel: CanteenViewModel by viewModels()
-    private var _binding: FragmentCanteenBinding? = null
+class ShoppingFragment: Fragment() {
+    private val shoppingViewModel: ShoppingViewModel by viewModels()
+    private var _binding: FragmentShoppingBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCanteenBinding.inflate(inflater, container, false)
+        _binding = FragmentShoppingBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,7 +30,6 @@ class CanteenFragment : Fragment() {
 
         setStatusBarColor()
         setupClickListener()
-        generateQRCode()
         goToNext()
     }
 
@@ -43,33 +40,18 @@ class CanteenFragment : Fragment() {
 
     private fun setupClickListener() {
         binding.apply {
-            viewBackBtnArea.setOnClickListener {
+            viewBackBtnArea.setOnClickListener{
                 findNavController().popBackStack()
             }
 
-            consShoppingHistory.setOnClickListener {
-                generateQRCode()
-            }
-
-            consAddNewCreditCard.setOnClickListener {
-                generateQRCode()
-            }
-
-
         }
-    }
-
-    private fun generateQRCode() {
-        val barcodeEncoder = BarcodeEncoder()
-        val bitmap = barcodeEncoder.encodeBitmap(canteenViewModel.getRandomString(8), BarcodeFormat.QR_CODE, 512, 512)
-        binding.imgQrcode.setImageBitmap(bitmap)
     }
 
     private fun goToNext() {
         Handler().postDelayed({
                                   findNavController().apply {
-                                      currentDestination?.getAction(R.id.action_canteenFragment_to_shoppingFragment)?.run {
-                                          navigate(R.id.action_canteenFragment_to_shoppingFragment)
+                                      currentDestination?.getAction(R.id.action_shoppingFragment_to_successShopping)?.run {
+                                          navigate(R.id.action_shoppingFragment_to_successShopping)
                                       }
                                   }
                               }, 4000)
