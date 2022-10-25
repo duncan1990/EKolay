@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/tradewind"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgBackBtn"
+        android:layout_width="19dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/previous"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <View
+        android:id="@+id/viewBackBtnArea"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </View>
+
+    <TextView
+        android:id="@+id/txtToolbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gotham_bold"
+        android:text="@string/shopping_history_"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/consDate"
+        android:layout_width="0dp"
+        android:layout_height="101dp"
+        android:background="@color/albabaster"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ImageView
+            android:id="@+id/imgCalendar"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="26dp"
+            android:src="@drawable/ic_calendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/gotham_light"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgCalendar"
+            app:layout_constraintStart_toEndOf="@+id/imgCalendar"
+            app:layout_constraintTop_toTopOf="@+id/imgCalendar"
+            tools:text="25 EKİM 2021" />
+
+        <TextView
+            android:id="@+id/txtMarketName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/gotham_medium"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/imgCalendar"
+            app:layout_constraintTop_toBottomOf="@+id/txtDate"
+            tools:text="ATAŞEHİR MMM MİGROS" />
+
+        <ImageView
+            android:id="@+id/imgPdf"
+            android:layout_width="46dp"
+            android:layout_height="41dp"
+            android:layout_marginEnd="21dp"
+            android:src="@drawable/ic_pdf"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtDate"
+            tools:ignore="ContentDescription" />
+
+        <View
+            android:id="@+id/viewBottomDate"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/mercury"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingBottom="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/consSummary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consDate" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/consSummary"
+        android:layout_width="0dp"
+        android:layout_height="133dp"
+        android:background="@color/albabaster"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:id="@+id/viewLineSummary"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/mercury"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgBasket"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/ic_basket"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <View
+            android:id="@+id/viewLineFirst"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/gallery_dark"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBasket"
+            app:layout_constraintEnd_toStartOf="@+id/imgTicket"
+            app:layout_constraintStart_toEndOf="@+id/imgBasket"
+            app:layout_constraintTop_toTopOf="@+id/imgBasket" />
+
+        <TextView
+            android:id="@+id/txtCartTotalFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/gotham_regular"
+            android:text="@string/cart_total_fee"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/imgBasket"
+            app:layout_constraintStart_toStartOf="@+id/imgBasket"
+            app:layout_constraintTop_toBottomOf="@+id/imgBasket" />
+
+        <TextView
+            android:id="@+id/txtBasketPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/gotham_medium"
+            android:text="56.40 TL"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtCartTotalFee"
+            app:layout_constraintStart_toStartOf="@+id/txtCartTotalFee"
+            app:layout_constraintTop_toBottomOf="@+id/txtCartTotalFee" />
+
+        <ImageView
+            android:id="@+id/imgTicket"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:src="@drawable/ic_ticket"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBasket"
+            app:layout_constraintEnd_toStartOf="@+id/imgWallet"
+            app:layout_constraintStart_toEndOf="@+id/imgBasket"
+            app:layout_constraintTop_toTopOf="@+id/imgBasket"
+            tools:ignore="ContentDescription" />
+
+        <View
+            android:id="@+id/viewLineSecond"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/gallery_dark"
+            app:layout_constraintBottom_toBottomOf="@+id/imgTicket"
+            app:layout_constraintEnd_toStartOf="@+id/imgWallet"
+            app:layout_constraintStart_toEndOf="@+id/imgTicket"
+            app:layout_constraintTop_toTopOf="@+id/imgTicket" />
+
+        <TextView
+            android:id="@+id/txtTicket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/gotham_regular"
+            android:text="@string/discount"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/imgTicket"
+            app:layout_constraintStart_toStartOf="@+id/imgTicket"
+            app:layout_constraintTop_toBottomOf="@+id/imgTicket" />
+
+        <TextView
+            android:id="@+id/txtTicketPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/gotham_bold"
+            android:text="-5.40 TL"
+            android:textColor="@color/lima"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtTicket"
+            app:layout_constraintStart_toStartOf="@+id/txtTicket"
+            app:layout_constraintTop_toBottomOf="@+id/txtTicket" />
+
+        <ImageView
+            android:id="@+id/imgWallet"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="47dp"
+            android:src="@drawable/ic_wallet"
+            app:layout_constraintBottom_toBottomOf="@+id/imgTicket"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imgTicket"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/txtWallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/gotham_regular"
+            android:text="@string/total_fee"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/imgWallet"
+            app:layout_constraintStart_toStartOf="@+id/imgWallet"
+            app:layout_constraintTop_toBottomOf="@+id/imgWallet" />
+
+        <TextView
+            android:id="@+id/txtWalletPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/gotham_bold"
+            android:text="51.00 TL"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtWallet"
+            app:layout_constraintStart_toStartOf="@+id/txtWallet"
+            app:layout_constraintTop_toBottomOf="@+id/txtWallet" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

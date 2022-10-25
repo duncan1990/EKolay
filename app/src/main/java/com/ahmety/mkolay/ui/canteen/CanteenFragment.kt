@@ -1,7 +1,6 @@
 package com.ahmety.mkolay.ui.canteen
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import com.ahmety.mkolay.R
 import com.ahmety.mkolay.databinding.FragmentCanteenBinding
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
-
 
 class CanteenFragment : Fragment() {
     private val canteenViewModel: CanteenViewModel by viewModels()
@@ -33,7 +31,6 @@ class CanteenFragment : Fragment() {
         setStatusBarColor()
         setupClickListener()
         generateQRCode()
-        goToNext()
     }
 
     private fun setStatusBarColor() {
@@ -48,13 +45,20 @@ class CanteenFragment : Fragment() {
             }
 
             consShoppingHistory.setOnClickListener {
-                generateQRCode()
+                findNavController().apply {
+                    currentDestination?.getAction(R.id.action_canteenFragment_to_shoppingHistoryFragment)?.run {
+                        navigate(R.id.action_canteenFragment_to_shoppingHistoryFragment)
+                    }
+                }
             }
 
             consAddNewCreditCard.setOnClickListener {
                 generateQRCode()
             }
 
+            imgQrcode.setOnClickListener {
+                goToNext()
+            }
 
         }
     }
@@ -66,13 +70,11 @@ class CanteenFragment : Fragment() {
     }
 
     private fun goToNext() {
-        Handler().postDelayed({
-                                  findNavController().apply {
-                                      currentDestination?.getAction(R.id.action_canteenFragment_to_shoppingFragment)?.run {
-                                          navigate(R.id.action_canteenFragment_to_shoppingFragment)
-                                      }
-                                  }
-                              }, 4000)
+        findNavController().apply {
+            currentDestination?.getAction(R.id.action_canteenFragment_to_shoppingFragment)?.run {
+                navigate(R.id.action_canteenFragment_to_shoppingFragment)
+            }
+        }
     }
 
     override fun onDestroyView() {

@@ -12,7 +12,7 @@ import com.ahmety.mkolay.databinding.FragmentSuccessShoppingBinding
 import com.ahmety.mkolay.model.Order
 import com.ahmety.mkolay.successshopping.adapter.SuccessShoppingAdapter
 
-class SuccessShopping : Fragment() {
+class SuccessShoppingFragment : Fragment() {
     private var _binding: FragmentSuccessShoppingBinding? = null
     private val binding get() = _binding!!
     private var adapter: SuccessShoppingAdapter? = null

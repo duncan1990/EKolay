@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/albabaster">
+
+        <TextView
+            android:id="@+id/txtMarketName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/gotham_bold"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="ATAŞEHİR MMM MİGROS" />
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="22dp"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/gotham_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtMarketName"
+            app:layout_constraintTop_toBottomOf="@+id/txtMarketName"
+            tools:text="25 Ekim 2021"/>
+
+        <ImageView
+            android:id="@+id/imgRightArrow"
+            android:layout_width="6dp"
+            android:layout_height="11dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/right_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/txtDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtMarketName"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/txtFee"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="13dp"
+            android:fontFamily="@font/gotham_bold"
+            android:textAlignment="center"
+            android:textColor="@color/tradewind"
+            app:layout_constraintBottom_toBottomOf="@+id/imgRightArrow"
+            app:layout_constraintEnd_toStartOf="@+id/imgRightArrow"
+            app:layout_constraintTop_toTopOf="@+id/imgRightArrow"
+            tools:text="123,45 TL" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

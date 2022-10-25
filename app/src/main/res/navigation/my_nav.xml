@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_canteenFragment_to_shoppingFragment"
             app:destination="@id/shoppingFragment" />
+        <action
+            android:id="@+id/action_canteenFragment_to_shoppingHistoryFragment"
+            app:destination="@id/shoppingHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoppingFragment"
@@ -30,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/successShopping"
-        android:name="com.ahmety.mkolay.successshopping.SuccessShopping"
+        android:name="com.ahmety.mkolay.successshopping.SuccessShoppingFragment"
         android:label="SuccessShopping" >
         <action
             android:id="@+id/action_successShopping_to_mainFragment"
@@ -38,5 +41,24 @@
         <action
             android:id="@+id/action_successShopping_self"
             app:popUpTo="@id/successShopping" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingHistoryFragment"
+        android:name="com.ahmety.mkolay.shoppinghistory.ShoppingHistoryFragment"
+        android:label="ShoppingHistoryFragment" >
+        <action
+            android:id="@+id/action_shoppingHistoryFragment_to_shoppingHistoryDetailFragment"
+            app:destination="@id/shoppingHistoryDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingHistoryDetailFragment"
+        android:name="com.ahmety.mkolay.shoppinghistory.detail.ShoppingHistoryDetailFragment"
+        android:label="ShoppingHistoryDetailFragment" >
+        <argument
+            android:name="marketName"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
     </fragment>
 </navigation>

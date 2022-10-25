@@ -21,7 +21,7 @@ class SuccessShoppingAdapter : ListAdapter<Order, SuccessShoppingAdapter.HomeVie
                 Glide.with(imgPic).load(item.picUrl).error(R.drawable.ic_baseline_warning_24).into(imgPic)
                 txtItemName.text = item.itemName
                 txtItemAmount.text = item.itemAmount
-                txtItemPrice.text = txtItemPrice.context.getString(R.string.price, item.itemPrice)
+                txtItemPrice.text = txtItemPrice.context.getString(R.string.price_with_symbol, item.itemPrice).replace(".",",")
                 txtItemQuantatiy.text = item.itemQuantatiy
             }
         }
