@@ -13,19 +13,33 @@ class SuccessShoppingViewModel : ViewModel() {
     val order: LiveData<List<Order>> = _orderList
     private val _liveText = MutableLiveData<String>()
     val liveText: LiveData<String> = _liveText
-    var total = ""
 
     init {
         viewModelScope.launch {
+            var totalFee = 00.00
             _orderList.value = FirebaseOrderService.getOrderData()
-            val price = _orderList.value?.get(0)?.itemPrice?.toDoubleOrNull()
-            if (price != null) {
-                _orderList.value?.get(0)?.itemQuantatiy?.let {
-                    val priceTimesQuantatiy = price * it
-                    total = priceTimesQuantatiy.toString()
-                    _liveText.value = total
+            _orderList.value?.let { orderL ->
+                for (i in orderL.indices) {
+                    val price = _orderList.value?.get(i)?.itemPrice?.toDoubleOrNull()
+                    if (price != null) {
+                        _orderList.value?.get(i)?.itemQuantatiy?.let {
+                            val priceTimesQuantatiy = price * it
+                            totalFee += priceTimesQuantatiy
+                        }
+                    }
                 }
             }
+
+            _liveText.value = totalFee.toString().checkMoneyDigit()
+        }
+    }
+
+    private fun String.checkMoneyDigit(): String {
+        val digitAfterDot = this.substringAfterLast(".")
+        return if (digitAfterDot.length == 1) {
+            this + "0"
+        } else {
+            this
         }
     }
 
