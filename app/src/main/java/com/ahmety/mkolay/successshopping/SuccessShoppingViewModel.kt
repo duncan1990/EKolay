@@ -9,8 +9,8 @@ import com.ahmety.mkolay.service.FirebaseOrderService
 import kotlinx.coroutines.launch
 
 class SuccessShoppingViewModel : ViewModel() {
-    private val _orderList = MutableLiveData<Order>()
-    val order: LiveData<Order> = _orderList
+    private val _orderList = MutableLiveData<List<Order>>()
+    val order: LiveData<List<Order>> = _orderList
     private val _liveText = MutableLiveData<String>()
     val liveText: LiveData<String> = _liveText
     var total = ""
@@ -18,9 +18,9 @@ class SuccessShoppingViewModel : ViewModel() {
     init {
         viewModelScope.launch {
             _orderList.value = FirebaseOrderService.getOrderData()
-            val price = _orderList.value?.itemPrice?.toDoubleOrNull()
+            val price = _orderList.value?.get(0)?.itemPrice?.toDoubleOrNull()
             if (price != null) {
-                _orderList.value?.itemQuantatiy?.let {
+                _orderList.value?.get(0)?.itemQuantatiy?.let {
                     val priceTimesQuantatiy = price * it
                     total = priceTimesQuantatiy.toString()
                     _liveText.value = total

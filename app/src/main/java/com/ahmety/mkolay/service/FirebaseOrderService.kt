@@ -9,11 +9,11 @@ import kotlinx.coroutines.tasks.await
 
 object FirebaseOrderService {
     private const val TAG = "FirebaseOrderService"
-    suspend fun getOrderData(): Order? {
+    suspend fun getOrderData(): List<Order>? {
         val db = FirebaseFirestore.getInstance()
         return try {
-            db.collection("Order")
-                .document("eBW6Je5g4NY8Q18wzIO1").get().await().toOrder()
+            db.collection("Order").get().await()
+                .documents.mapNotNull { it.toOrder() }
         } catch (e: Exception) {
             Log.e(TAG, "Error getting order details", e)
             FirebaseCrashlytics.getInstance().log("Error getting order details")

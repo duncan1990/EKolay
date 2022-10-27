@@ -48,7 +48,7 @@ class SuccessShoppingFragment : BaseFragment<FragmentSuccessShoppingBinding>() {
             recyclerViewOrder.adapter = adapter
 
             viewModel.order.observe(viewLifecycleOwner, Observer {
-                adapter?.submitList(mutableListOf(it))
+                adapter?.submitList(it)
             })
         }
     }
