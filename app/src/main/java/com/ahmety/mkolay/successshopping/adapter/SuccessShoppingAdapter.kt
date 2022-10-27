@@ -2,6 +2,7 @@ package com.ahmety.mkolay.successshopping.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +23,10 @@ class SuccessShoppingAdapter : ListAdapter<Order, SuccessShoppingAdapter.HomeVie
                 txtItemName.text = item.itemName
                 txtItemAmount.text = item.itemAmount
                 txtItemPrice.text = txtItemPrice.context.getString(R.string.price_with_symbol, item.itemPrice).replace(".",",")
-                txtItemQuantatiy.text = item.itemQuantatiy
+                txtItemQuantatiy.isInvisible = item.itemQuantatiy == 1
+                consQuantatity.isInvisible = item.itemQuantatiy == 1
+                txtItemQuantatiy.text = txtItemQuantatiy.context.getString(R.string.quantatiy, item.itemQuantatiy)
+
             }
         }
     }

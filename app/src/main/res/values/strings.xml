@@ -19,12 +19,13 @@
     <string name="return_homepage">Anasayfaya dön</string>
     <string name="paid_fee">Ödenen Tutar</string>
     <string name="negro">Eti Negro</string>
-    <string name="price_with_symbol">%1$.2f &#x20BA;</string>
-    <string name="price_with_turkish_lira">%1$.2f TL</string>
+    <string name="price_with_symbol">%s &#x20BA;</string>
+    <string name="price_with_turkish_lira">%s TL</string>
+    <!--<string name="price_with_turkish_lira">%1$.2f TL</string>-->
     <string name="shopping_history_">Alışveriş Geçmişim</string>
     <string name="cart_total_fee">Sepet Tutarı</string>
     <string name="discount">İndirim</string>
     <string name="total_fee">Toplam Tutar</string>
     <string name="cart_summary">Sepet Özeti</string>
-
+    <string name="quantatiy">%d Adet</string>
 </resources>

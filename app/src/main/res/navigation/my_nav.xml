@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_canteenFragment_to_shoppingHistoryFragment"
             app:destination="@id/shoppingHistoryFragment" />
+        <action
+            android:id="@+id/action_canteenFragment_to_addNewCreditCardFragment"
+            app:destination="@id/addNewCreditCardFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoppingFragment"
@@ -59,6 +62,25 @@
             app:argType="string" />
         <argument
             android:name="date"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_shoppingHistoryDetailFragment_to_pdfFragment"
+            app:destination="@id/pdfFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pdfFragment"
+        android:name="com.ahmety.mkolay.shoppinghistory.detail.pdf.PdfFragment"
+        android:label="PdfFragment" >
+        <argument
+            android:name="pdfUrl"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewCreditCardFragment"
+        android:name="com.ahmety.mkolay.ui.creditcard.AddNewCreditCardFragment"
+        android:label="AddNewCreditCardFragment" >
+        <argument
+            android:name="webUrl"
             app:argType="string" />
     </fragment>
 </navigation>

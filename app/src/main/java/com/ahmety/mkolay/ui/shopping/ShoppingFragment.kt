@@ -1,65 +1,56 @@
 package com.ahmety.mkolay.ui.shopping
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import com.ahmety.mkolay.base.BaseFragment
 import com.ahmety.mkolay.R
 import com.ahmety.mkolay.databinding.FragmentShoppingBinding
+import com.ahmety.mkolay.model.enum.StatusTrack
+import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
-class ShoppingFragment: Fragment() {
-    private val shoppingViewModel: ShoppingViewModel by viewModels()
-    private var _binding: FragmentShoppingBinding? = null
-    private val binding get() = _binding!!
+class ShoppingFragment : BaseFragment<FragmentShoppingBinding>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentShoppingBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentShoppingBinding =
+        FragmentShoppingBinding::inflate
+
+    private var db = FirebaseDatabase.getInstance().reference
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setStatusBarColor()
+        setStatusBarColor(requireContext(), R.color.hibiscus)
         setupClickListener()
-        goToNext()
-    }
-
-    private fun setStatusBarColor() {
-        val window = requireActivity().window
-        window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.hibiscus)
+        db.addValueEventListener(getData) // listen data
     }
 
     private fun setupClickListener() {
         binding.apply {
-            viewBackBtnArea.setOnClickListener{
-                findNavController().popBackStack()
+            viewBackBtnArea.setOnClickListener {
+                navigateBack()
             }
-
         }
     }
 
     private fun goToNext() {
-        Handler().postDelayed({
-                                  findNavController().apply {
-                                      currentDestination?.getAction(R.id.action_shoppingFragment_to_successShopping)?.run {
-                                          navigate(R.id.action_shoppingFragment_to_successShopping)
-                                      }
-                                  }
-                              }, 4000)
+        safeNavigate(R.id.action_shoppingFragment_to_successShopping)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private var getData = object : ValueEventListener {
+        override fun onDataChange(snapshot: DataSnapshot) {
+            if (snapshot.child("status").value == StatusTrack.Success.type) {
+                goToNext()
+            }
+        }
+
+        override fun onCancelled(error: DatabaseError) {
+            FirebaseCrashlytics.getInstance().log("QR code Cancelled")
+        }
     }
 
 }

@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ahmety.mkolay.R
 import com.ahmety.mkolay.databinding.ItemShoppingHistoryBinding
+import com.ahmety.mkolay.extension.toString
 import com.ahmety.mkolay.model.ShoppingHistory
-import java.text.SimpleDateFormat
-import java.util.*
+
 
 class ShoppingHistoryAdapter(private val onClickItem: (ShoppingHistory) -> Unit): ListAdapter<ShoppingHistory, ShoppingHistoryAdapter.HomeViewHolder>(
     ShoppingHistoryAdapterComparator
@@ -51,5 +51,3 @@ class ShoppingHistoryAdapter(private val onClickItem: (ShoppingHistory) -> Unit)
         }
     }
 }
-
-fun Date.toString(dateFormat: String): String? = SimpleDateFormat(dateFormat, Locale.getDefault()).format(this)

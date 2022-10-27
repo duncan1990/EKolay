@@ -2,6 +2,7 @@ package com.ahmety.mkolay
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import com.ahmety.mkolay.databinding.ActivityMainBinding
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setStatusBarColor() {
         val window = this.window
-        window.statusBarColor = this.resources.getColor(R.color.zest)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.zest)
     }
 
     private fun setBottomNav() {

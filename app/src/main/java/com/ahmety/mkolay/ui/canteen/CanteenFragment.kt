@@ -4,62 +4,51 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import com.ahmety.mkolay.base.BaseFragment
 import com.ahmety.mkolay.R
 import com.ahmety.mkolay.databinding.FragmentCanteenBinding
+import com.ahmety.mkolay.model.enum.StatusTrack
+import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
 
-class CanteenFragment : Fragment() {
+class CanteenFragment : BaseFragment<FragmentCanteenBinding>() {
     private val canteenViewModel: CanteenViewModel by viewModels()
-    private var _binding: FragmentCanteenBinding? = null
-    private val binding get() = _binding!!
+    private var db = FirebaseDatabase.getInstance().reference
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentCanteenBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentCanteenBinding =
+        FragmentCanteenBinding::inflate
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setStatusBarColor()
+        setStatusBarColor(requireContext(), R.color.hibiscus)
         setupClickListener()
         generateQRCode()
-    }
-
-    private fun setStatusBarColor() {
-        val window = requireActivity().window
-        window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.hibiscus)
+        db.addValueEventListener(getData)
     }
 
     private fun setupClickListener() {
         binding.apply {
             viewBackBtnArea.setOnClickListener {
-                findNavController().popBackStack()
+                navigateBack()
             }
 
             consShoppingHistory.setOnClickListener {
-                findNavController().apply {
-                    currentDestination?.getAction(R.id.action_canteenFragment_to_shoppingHistoryFragment)?.run {
-                        navigate(R.id.action_canteenFragment_to_shoppingHistoryFragment)
-                    }
-                }
+                safeNavigate(R.id.action_canteenFragment_to_shoppingHistoryFragment)
             }
 
             consAddNewCreditCard.setOnClickListener {
-                generateQRCode()
+                val action = CanteenFragmentDirections.actionCanteenFragmentToAddNewCreditCardFragment(
+                    "https://api-test.moneypay.com.tr:8743/#/list?userToken=73786f6d6b6e4f636f6c6e726c757371"
+                )
+                safeNavigate(action)
             }
-
-            imgQrcode.setOnClickListener {
-                goToNext()
-            }
-
         }
     }
 
@@ -70,16 +59,20 @@ class CanteenFragment : Fragment() {
     }
 
     private fun goToNext() {
-        findNavController().apply {
-            currentDestination?.getAction(R.id.action_canteenFragment_to_shoppingFragment)?.run {
-                navigate(R.id.action_canteenFragment_to_shoppingFragment)
+        safeNavigate(R.id.action_canteenFragment_to_shoppingFragment)
+    }
+
+    private var getData = object : ValueEventListener {
+        override fun onDataChange(snapshot: DataSnapshot) {
+            when (snapshot.child("status").value) {
+                StatusTrack.GoNext.type -> goToNext()
+                StatusTrack.ReGenerateQR.type -> generateQRCode()
+                StatusTrack.Crash.type -> FirebaseCrashlytics.getInstance().log("QR code Error")
             }
         }
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        override fun onCancelled(error: DatabaseError) {
+            FirebaseCrashlytics.getInstance().log("QR code Cancelled")
+        }
     }
-
 }

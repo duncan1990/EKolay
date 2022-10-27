@@ -8,44 +8,34 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ahmety.mkolay.R
+import com.ahmety.mkolay.base.BaseFragment
+import com.ahmety.mkolay.databinding.FragmentPdfWebviewBinding
 import com.ahmety.mkolay.databinding.FragmentShoppingHistoryBinding
+import com.ahmety.mkolay.extension.toString
 import com.ahmety.mkolay.model.ShoppingHistory
 import com.ahmety.mkolay.shoppinghistory.adapter.ShoppingHistoryAdapter
-import com.ahmety.mkolay.shoppinghistory.adapter.toString
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ShoppingHistoryFragment : Fragment() {
+class ShoppingHistoryFragment : BaseFragment<FragmentShoppingHistoryBinding>() {
 
-    private var _binding: FragmentShoppingHistoryBinding? = null
-    private val binding get() = _binding!!
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentShoppingHistoryBinding =
+        FragmentShoppingHistoryBinding::inflate
+
     private var adapter: ShoppingHistoryAdapter? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentShoppingHistoryBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setStatusBarColor()
+        setStatusBarColor(requireContext(), R.color.tradewind)
         setupClickListener()
         setupAdapter()
-    }
-
-    private fun setStatusBarColor() {
-        val window = requireActivity().window
-        window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.tradewind)
     }
 
     private fun setupClickListener() {
         binding.apply {
             viewBackBtnArea.setOnClickListener {
-                findNavController().popBackStack()
+                navigateBack()
             }
         }
     }
@@ -84,17 +74,12 @@ class ShoppingHistoryFragment : Fragment() {
             val action = ShoppingHistoryFragmentDirections.actionShoppingHistoryFragmentToShoppingHistoryDetailFragment(
                 item.marketName, dateString
             )
-            findNavController().apply {
-                currentDestination?.getAction(action.actionId)?.run {
-                    navigate(action)
-                }
-            }
+            safeNavigate(action)
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
         adapter = null
     }
 

@@ -43,10 +43,9 @@ class ShoppingHistoryDetailAdapter :
                 txtItemName.text = item.itemName
                 txtItemAmount.text = item.itemAmount
                 txtItemPrice.text = txtItemPrice.context.getString(R.string.price_with_symbol, item.itemPrice)
-                txtItemQuantatiy.isInvisible = item.itemQuantatiy.isEmpty()
-                imgBg.isInvisible= item.itemQuantatiy.isEmpty()
-                txtItemQuantatiy.text = item.itemQuantatiy
-
+                txtItemQuantatiy.isInvisible = item.itemQuantatiy == 1
+                imgBg.isInvisible= item.itemQuantatiy == 1
+                txtItemQuantatiy.text = txtItemQuantatiy.context.getString(R.string.quantatiy, item.itemQuantatiy)
             }
         }
     }
