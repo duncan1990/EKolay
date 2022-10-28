@@ -1,6 +1,7 @@
 package com.ahmety.mkolay.ui.canteen
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import com.ahmety.mkolay.base.BaseFragment
 import com.ahmety.mkolay.R
 import com.ahmety.mkolay.databinding.FragmentCanteenBinding
 import com.ahmety.mkolay.model.enum.StatusTrack
+import com.ahmety.mkolay.service.FirebaseOrderService
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -67,7 +69,10 @@ class CanteenFragment : BaseFragment<FragmentCanteenBinding>() {
             when (snapshot.child("status").value) {
                 StatusTrack.GoNext.type -> goToNext()
                 StatusTrack.ReGenerateQR.type -> generateQRCode()
-                StatusTrack.Crash.type -> FirebaseCrashlytics.getInstance().log("QR code Error")
+                StatusTrack.Crash.type -> {
+                    Log.i("Firebase Crash", "QR code Error")
+                    FirebaseCrashlytics.getInstance().setCustomKey("error", "QR code Error")
+                    FirebaseCrashlytics.getInstance().log("QR code Error")}
             }
         }
 
