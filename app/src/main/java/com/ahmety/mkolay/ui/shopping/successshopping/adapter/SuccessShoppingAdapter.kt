@@ -1,4 +1,4 @@
-package com.ahmety.mkolay.successshopping.adapter
+package com.ahmety.mkolay.ui.shopping.successshopping.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

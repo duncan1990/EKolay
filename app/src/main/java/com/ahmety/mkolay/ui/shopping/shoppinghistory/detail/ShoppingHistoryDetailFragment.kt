@@ -1,20 +1,15 @@
-package com.ahmety.mkolay.shoppinghistory.detail
+package com.ahmety.mkolay.ui.shopping.shoppinghistory.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ahmety.mkolay.R
 import com.ahmety.mkolay.base.BaseFragment
-import com.ahmety.mkolay.databinding.FragmentMainBinding
 import com.ahmety.mkolay.databinding.FragmentShoppingHistoryDetailBinding
 import com.ahmety.mkolay.model.Order
-import com.ahmety.mkolay.shoppinghistory.ShoppingHistoryFragmentDirections
-import com.ahmety.mkolay.shoppinghistory.detail.adapter.ShoppingHistoryDetailAdapter
+import com.ahmety.mkolay.ui.shopping.shoppinghistory.detail.adapter.ShoppingHistoryDetailAdapter
 
 class ShoppingHistoryDetailFragment : BaseFragment<FragmentShoppingHistoryDetailBinding>() {
 

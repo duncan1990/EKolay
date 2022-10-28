@@ -1,4 +1,4 @@
-package com.ahmety.mkolay.successshopping
+package com.ahmety.mkolay.ui.shopping.successshopping
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.ahmety.mkolay.shoppinghistory.adapter
+package com.ahmety.mkolay.ui.shopping.shoppinghistory.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

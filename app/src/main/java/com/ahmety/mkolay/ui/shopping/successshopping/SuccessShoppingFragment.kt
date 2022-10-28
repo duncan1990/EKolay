@@ -1,4 +1,4 @@
-package com.ahmety.mkolay.successshopping
+package com.ahmety.mkolay.ui.shopping.successshopping
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.viewModels
 import com.ahmety.mkolay.base.BaseFragment
 import com.ahmety.mkolay.R
 import com.ahmety.mkolay.databinding.FragmentSuccessShoppingBinding
-import com.ahmety.mkolay.successshopping.adapter.SuccessShoppingAdapter
+import com.ahmety.mkolay.ui.shopping.successshopping.adapter.SuccessShoppingAdapter
 
 class SuccessShoppingFragment : BaseFragment<FragmentSuccessShoppingBinding>() {
 

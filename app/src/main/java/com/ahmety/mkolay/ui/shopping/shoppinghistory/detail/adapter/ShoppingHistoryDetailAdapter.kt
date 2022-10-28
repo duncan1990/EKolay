@@ -1,4 +1,4 @@
-package com.ahmety.mkolay.shoppinghistory.detail.adapter
+package com.ahmety.mkolay.ui.shopping.shoppinghistory.detail.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

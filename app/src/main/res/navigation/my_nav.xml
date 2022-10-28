@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/successShopping"
-        android:name="com.ahmety.mkolay.successshopping.SuccessShoppingFragment"
+        android:name="com.ahmety.mkolay.ui.shopping.successshopping.SuccessShoppingFragment"
         android:label="SuccessShopping" >
         <action
             android:id="@+id/action_successShopping_to_mainFragment"
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/shoppingHistoryFragment"
-        android:name="com.ahmety.mkolay.shoppinghistory.ShoppingHistoryFragment"
+        android:name="com.ahmety.mkolay.ui.shopping.shoppinghistory.ShoppingHistoryFragment"
         android:label="ShoppingHistoryFragment" >
         <action
             android:id="@+id/action_shoppingHistoryFragment_to_shoppingHistoryDetailFragment"
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/shoppingHistoryDetailFragment"
-        android:name="com.ahmety.mkolay.shoppinghistory.detail.ShoppingHistoryDetailFragment"
+        android:name="com.ahmety.mkolay.ui.shopping.shoppinghistory.detail.ShoppingHistoryDetailFragment"
         android:label="ShoppingHistoryDetailFragment" >
         <argument
             android:name="marketName"
@@ -69,7 +69,7 @@
     </fragment>
     <fragment
         android:id="@+id/pdfFragment"
-        android:name="com.ahmety.mkolay.shoppinghistory.detail.pdf.PdfFragment"
+        android:name="com.ahmety.mkolay.ui.shopping.shoppinghistory.detail.pdf.PdfFragment"
         android:label="PdfFragment" >
         <argument
             android:name="pdfUrl"

@@ -1,4 +1,4 @@
-package com.ahmety.mkolay.shoppinghistory.detail.pdf
+package com.ahmety.mkolay.ui.shopping.shoppinghistory.detail.pdf
 
 import android.annotation.SuppressLint
 import android.os.Bundle
