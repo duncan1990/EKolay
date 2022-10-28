@@ -17,10 +17,11 @@ class ShoppingHistoryAdapter(private val onClickItem: (ShoppingHistory) -> Unit)
     inner class HomeViewHolder(private val binding: ItemShoppingHistoryBinding) : RecyclerView.ViewHolder(
         binding.root
     ) {
+
         fun bind(item: ShoppingHistory, onClickItem: (ShoppingHistory) -> Unit) {
             binding.apply {
                 txtMarketName.text = item.marketName
-                txtFee.text = txtFee.context.getString(R.string.price_with_turkish_lira, item.price).replace(".",",")
+                txtFee.text = txtFee.context.getString(R.string.price_with_turkish_lira_double, item.price).replace(".",",")
                 txtDate.text = item.date.toString("dd MMMM yyyy")
 
                 root.setOnClickListener {

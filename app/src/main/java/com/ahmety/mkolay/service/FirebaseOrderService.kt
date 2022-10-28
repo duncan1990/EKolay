@@ -17,33 +17,9 @@ object FirebaseOrderService {
         } catch (e: Exception) {
             Log.e(TAG, "Error getting order details", e)
             FirebaseCrashlytics.getInstance().log("Error getting order details")
-            FirebaseCrashlytics.getInstance().setCustomKey("id", "1")
             FirebaseCrashlytics.getInstance().recordException(e)
             null
         }
     }
-
-/*    fun getOrder(id: String): Flow<List<Post>> {
-        val db = FirebaseFirestore.getInstance()
-        return callbackFlow {
-            val listenerRegistration = db.collection("users")
-                .document(userId)
-                .collection("posts")
-                .addSnapshotListener { querySnapshot: QuerySnapshot?, firebaseFirestoreException: FirebaseFirestoreException? ->
-                    if (firebaseFirestoreException != null) {
-                        cancel(message = "Error fetching posts",
-                               cause = firebaseFirestoreException)
-                        return@addSnapshotListener
-                    }
-                    val map = querySnapshot.documents.
-                        .mapNotNull { it.toPost() }
-                    offer(map)
-                }
-            awaitClose {
-                Log.d(TAG, "Cancelling posts listener")
-                listenerRegistration.remove()
-            }
-        }
-    }*/
 
 }

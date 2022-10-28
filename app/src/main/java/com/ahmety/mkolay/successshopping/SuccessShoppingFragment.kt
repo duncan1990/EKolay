@@ -29,9 +29,9 @@ class SuccessShoppingFragment : BaseFragment<FragmentSuccessShoppingBinding>() {
     }
 
     private fun observeUI() {
-        viewModel.liveText.observe(viewLifecycleOwner, Observer {
+        viewModel.liveText.observe(viewLifecycleOwner) {
             binding.txtFee.text = getString(R.string.price_with_turkish_lira, it).replace(".0", ".00")
-        })
+        }
     }
 
     private fun setupClickListener() {
@@ -47,9 +47,9 @@ class SuccessShoppingFragment : BaseFragment<FragmentSuccessShoppingBinding>() {
             adapter = SuccessShoppingAdapter()
             recyclerViewOrder.adapter = adapter
 
-            viewModel.order.observe(viewLifecycleOwner, Observer {
+            viewModel.order.observe(viewLifecycleOwner) {
                 adapter?.submitList(it)
-            })
+            }
         }
     }
 

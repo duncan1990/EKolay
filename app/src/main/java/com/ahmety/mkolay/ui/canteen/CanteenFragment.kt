@@ -72,7 +72,7 @@ class CanteenFragment : BaseFragment<FragmentCanteenBinding>() {
         }
 
         override fun onCancelled(error: DatabaseError) {
-            FirebaseCrashlytics.getInstance().log("QR code Cancelled")
+            FirebaseCrashlytics.getInstance().recordException(error.toException())
         }
     }
 }

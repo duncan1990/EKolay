@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
-import androidx.annotation.Nullable
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
@@ -41,7 +40,7 @@ abstract class BaseFragment <Binding : ViewBinding> : Fragment() {
         }
     }
 
-    fun safeNavigate(@IdRes resId: Int, @Nullable args: Bundle?) {
+    fun safeNavigate(@IdRes resId: Int, args: Bundle?) {
         findNavController().apply {
             currentDestination?.getAction(resId)?.run {
                 navigate(resId, args)
