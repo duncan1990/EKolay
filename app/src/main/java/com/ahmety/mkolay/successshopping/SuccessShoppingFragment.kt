@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.ahmety.mkolay.base.BaseFragment
 import com.ahmety.mkolay.R
 import com.ahmety.mkolay.databinding.FragmentSuccessShoppingBinding
