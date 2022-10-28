@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebViewClient
 import androidx.navigation.fragment.navArgs
 import com.ahmety.mkolay.base.BaseFragment
 import com.ahmety.mkolay.databinding.FragmentAddCreditCardWebviewBinding
@@ -26,6 +27,7 @@ class AddNewCreditCardFragment: BaseFragment<FragmentAddCreditCardWebviewBinding
     private fun setWebViewUrl() {
         binding.apply {
             webView.settings.javaScriptEnabled = true
+            webView.webViewClient = WebViewClient()
             webView.loadUrl(args.webUrl)
         }
     }
